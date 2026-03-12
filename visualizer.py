@@ -1,11 +1,13 @@
+'''Docstring for matploitlib Class'''
 import matplotlib.pyplot as plt
 
 class TrussVisualizer:
-
+    '''Docstring For Matploitlib Visual work'''
     def __init__(self, truss):
         self.truss = truss
 
     def draw(self):
+        '''Docstring for plotting points'''
 
         for member in self.truss.members.values():
 
