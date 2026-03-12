@@ -1,12 +1,13 @@
+'''Docstring for NumPy Calculations'''
 import numpy as np
 
 class TrussSolver:
-
+    '''Docstring for calculating related truss structure calculations'''
     def __init__(self, truss):
         self.truss = truss
 
     def solve(self):
-
+        '''Docstring for calculations'''
         members = list(self.truss.members.values())
         joints = list(self.truss.joints.values())
 
