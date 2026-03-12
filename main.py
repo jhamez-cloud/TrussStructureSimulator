@@ -1,3 +1,4 @@
+'''Docstring for main python file'''
 from joint import Joint
 from member import Member
 from truss import Truss
