@@ -142,7 +142,7 @@ joints = []
 for i in range(number_of_joints):
 
     point_name = input("Enter the name of joint: ")
-    x, y = map(float, input("Enter x and y coordinates for point: ").split())
+    x, y = map(float, input("Enter x and y coordinates for point (NB: Separate points with a space): ").split())
 
     joint = Joint(point_name, x, y)
     joints.append(joint)
@@ -152,17 +152,30 @@ for i in range(number_of_joints):
 
 
 # Apply load
-joints[2].set_load(0, -1000)
+for joint in joints:
+
+    print(f"\nJoint {joint.name}")
+
+    apply = input("Do you wish to apply load to this joint? (Enter 'y' for yes and 'n' for no): ").lower()
+
+    if apply == "y":
+        fx = float(input("Enter Fx (horizontal force) for this joint: "))
+        fy = float(input("Enter Fy (vertical force) for this joint: "))
+
+        joint.set_load(fx, fy)
 
 # Add joints
 truss.add_joint(joints[0])
 truss.add_joint(joints[1])
 truss.add_joint(joints[2])
 
+
+
 # Create members
 m1 = Member("AB", joints[0], joints[1])
 m2 = Member("BC", joints[1], joints[2])
 m3 = Member("AC", joints[0], joints[2])
+
 
 truss.add_member(m1)
 truss.add_member(m2)
